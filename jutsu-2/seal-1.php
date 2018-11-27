@@ -34,8 +34,6 @@ function combineChakra($chakra1, $chakra2, $chakra3 = null){
         return "Shakuton";
     } elseif (in_array("fûton", $chakras) && in_array("doton", $chakras)){
         return "Jiton";
-    } elseif (in_array("fûton", $chakras) && in_array("suiton", $chakras)){
-        return "Hyôton";
     } else {
         return "Unknown";
     }

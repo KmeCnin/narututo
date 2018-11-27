@@ -1,7 +1,12 @@
 <?php
 
 /*
- * Create a function
+ * Let's lighten even more the combineChakra function.
+ * Create a function hasChakras that takes 2 parameters:
+ * - an array that contains multiple chakras we want to find
+ * - an array that contains all the chakras to search into
+ * The function will return true if all requested chakras are found or false otherwise.
+ * Then replace all the in_array checks from combineChakra by the new function hasChakras.
  *
  * See:
  * - http://php.net/manual/en/function.array.php
@@ -13,26 +18,36 @@ $katon = "katon";
 $raiton = "raiton";
 $futon = "fûton";
 
+function hasChakras($requestedChakras, $allChakras) {
+    foreach ($requestedChakras as $requestedChakra) {
+        if (!in_array($requestedChakra, $allChakras)) {
+            return false;
+        }
+    }
+
+    return true;
+}
+
 function combineChakra($chakras){
-    if (in_array("doton", $chakras) && in_array("fûton", $chakras) && in_array("katon", $chakras)){
+    if (hasChakras(["doton", "fûton", "katon"], $chakras)){
         return "Jinton";
-    } elseif (in_array("fûton", $chakras) && in_array("suiton", $chakras)){
+    } elseif (hasChakras(["fûton", "suiton"], $chakras)){
         return "Hyôton";
-    } elseif (in_array("doton", $chakras) && in_array("suiton", $chakras)){
+    } elseif (hasChakras(["doton", "suiton"], $chakras)){
         return "Mokuton";
-    } elseif (in_array("raiton", $chakras) && in_array("suiton", $chakras)){
+    } elseif (hasChakras(["raiton", "suiton"], $chakras)){
         return "Ranton";
-    } elseif (in_array("katon", $chakras) && in_array("doton", $chakras)){
+    } elseif (hasChakras(["katon", "doton"], $chakras)){
         return "Hyôton";
-    } elseif (in_array("katon", $chakras) && in_array("suiton", $chakras)){
+    } elseif (hasChakras(["katon", "suiton"], $chakras)){
         return "Futton";
-    } elseif (in_array("doton", $chakras) && in_array("raiton", $chakras)){
+    } elseif (hasChakras(["doton", "raiton"], $chakras)){
         return "Bakuton";
-    } elseif (in_array("fûton", $chakras) && in_array("katon", $chakras)){
+    } elseif (hasChakras(["fûton", "katon"], $chakras)){
         return "Shakuton";
-    } elseif (in_array("fûton", $chakras) && in_array("doton", $chakras)){
+    } elseif (hasChakras(["fûton", "doton"], $chakras)){
         return "Jiton";
-    } elseif (in_array("fûton", $chakras) && in_array("suiton", $chakras)){
+    } elseif (hasChakras(["fûton", "suiton"], $chakras)){
         return "Hyôton";
     } else {
         return "Unknown";
