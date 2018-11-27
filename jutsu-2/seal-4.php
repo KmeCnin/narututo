@@ -1,10 +1,12 @@
 <?php
 
 /*
- * Create a function displayChakras that display all the chakras given as an array.
+ * Modify function displayChakras in order to force all displayed chakras to have all letters in
+ * lowercase except the first one in uppercase.
  *
  * See:
- * - http://php.net/manual/fr/control-structures.foreach.php
+ * - http://php.net/manual/fr/function.strtolower.php
+ * - https://www.w3schools.com/php/func_string_ucfirst.asp
  */
 
 $doton = "doton";
@@ -15,11 +17,13 @@ $futon = "fûton";
 
 function displayChakras($chakras) {
     foreach ($chakras as $chakra) {
-        echo "$chakra\n";
+        $lcChakra = strtolower($chakra);
+        $ucChakra = ucfirst($lcChakra);
+        echo "$ucChakra\n";
     }
 }
 
-displayChakras([$doton, $suiton, $katon, $raiton, $futon]);
+displayChakras([$doton, $suiton, $katon, $raiton, $futon, "anotherChakra"]);
 
 function combineChakra($chakras){
     if (in_array("doton", $chakras) && in_array("fûton", $chakras) && in_array("katon", $chakras)){
