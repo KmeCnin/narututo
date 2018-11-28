@@ -1,7 +1,7 @@
 ## Jutsu 2
 
 ### Mudra 1
-Lighten function combineChakra by removing some `||`.
+Lighten function combineChakra by removing some `||`.  
 Store the parameter chakra into an array and then search into that array if the wanted values are in it.
 
 See:
